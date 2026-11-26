@@ -1,0 +1,216 @@
+/* Japan in Numbers — portal stylesheet.
+   Palette: warm paper background, ink text, hinomaru red and indigo accents.
+   Layout is fluid with a 1080px measure; grids collapse to one column on
+   phones. No webfonts: the system sans stack keeps the first load tiny. */
+
+:root {
+  --paper: #faf7f2;
+  --surface: #ffffff;
+  --ink: #1d2733;
+  --muted: #5c6a76;
+  --line: #e3ddd2;
+  --red: #b03a2e;
+  --indigo: #1f5fa8;
+  --green: #2e7d4f;
+  --amber: #e8a33d;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(29, 39, 51, 0.08), 0 4px 14px rgba(29, 39, 51, 0.05);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  line-height: 1.55;
+}
+
+a { color: var(--indigo); }
+a:hover { text-decoration-thickness: 2px; }
+
+/* ---------------------------------------------------------------- header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+  padding: 12px 20px;
+  background: rgba(250, 247, 242, 0.96);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand-mark {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: inset 0 0 0 2px #fff, 0 0 0 1px var(--line);
+  flex: none;
+}
+.brand-text { font-weight: 700; font-size: 1.12rem; line-height: 1.15; display: flex; flex-direction: column; }
+.brand-text small { font-weight: 400; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 2px; margin-left: auto; }
+.nav-link {
+  padding: 7px 11px;
+  border-radius: 999px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.nav-link:hover { background: #f0e9dd; }
+.nav-link.active { background: var(--ink); color: #fff; }
+
+/* ---------------------------------------------------------------- layout */
+.page { max-width: 1080px; margin: 0 auto; padding: 22px 18px 10px; }
+section { margin-bottom: 26px; }
+.section-title, .page-title { font-size: 1.5rem; margin: 0 0 12px; }
+.page-title { font-size: 1.9rem; }
+.page-lede { color: var(--muted); max-width: 65ch; margin: 0; font-size: 1.03rem; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 20px;
+}
+.card h2 { margin: 0 0 10px; font-size: 1.12rem; }
+.source-line { color: var(--muted); font-size: 0.78rem; margin: 10px 0 0; }
+.chart-note { color: var(--muted); font-size: 0.92rem; margin: 8px 0 0; }
+
+/* ------------------------------------------------------------------ hero */
+.hero { display: grid; grid-template-columns: 5fr 7fr; gap: 18px; align-items: stretch; }
+.hero-text { padding: 8px 4px; }
+.hero-kicker { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.75rem; color: var(--red); font-weight: 700; margin: 0 0 6px; }
+.hero h1 { font-size: 2.3rem; line-height: 1.12; margin: 0 0 10px; }
+.hero h1 .native { color: var(--red); font-size: 1.6rem; vertical-align: middle; }
+.hero-lede { color: var(--muted); margin: 0 0 14px; }
+.hero-facts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; font-size: 0.95rem; }
+.hero-facts strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.hero-chart h2 { margin-top: 0; }
+
+/* ------------------------------------------------------------ KPI & fact */
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--red);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px 16px;
+}
+.kpi-card h3 { margin: 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.kpi-value { font-size: 1.55rem; font-weight: 700; margin: 4px 0 2px; }
+.kpi-detail { margin: 0; font-size: 0.88rem; color: var(--muted); }
+.fact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.fact-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px 16px;
+}
+.fact-card h3 { margin: 0; font-size: 0.92rem; }
+.fact-value { font-size: 1.35rem; font-weight: 700; color: var(--indigo); margin: 3px 0; }
+.fact-note { margin: 0; font-size: 0.88rem; color: var(--muted); }
+
+/* ---------------------------------------------------------------- charts */
+.chart { width: 100%; height: auto; display: block; }
+.chart .grid { stroke: #eee7da; stroke-width: 1; }
+.chart .zero { stroke: #c9c0ae; stroke-width: 1; }
+.chart .axis-num { font-size: 11px; fill: var(--muted); }
+.chart .bar-label { font-size: 12.5px; fill: var(--ink); }
+.chart .bar-value { font-size: 12.5px; font-weight: 600; fill: var(--ink); }
+.chart .dot { stroke: #fff; stroke-width: 1; }
+.donut-wrap { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.donut { max-width: 230px; }
+.donut-mid { font-size: 21px; font-weight: 700; fill: var(--ink); }
+.donut-sub { font-size: 11px; fill: var(--muted); }
+.legend { list-style: none; margin: 0; padding: 0; font-size: 0.95rem; }
+.legend li { margin: 5px 0; }
+.swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 8px; }
+.pyr-men { fill: var(--indigo); }
+.pyr-women { fill: var(--red); }
+.pyr-band { font-size: 11px; fill: var(--ink); }
+.pyr-head { font-size: 12px; font-weight: 600; }
+
+/* -------------------------------------------------------------- controls */
+.controls { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; }
+.control { display: flex; flex-direction: column; gap: 5px; font-size: 0.9rem; }
+.control span { font-weight: 600; }
+.control.grow { flex: 1 1 260px; }
+.control input[type="search"], .control select {
+  padding: 9px 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  min-width: 230px;
+}
+.control input[type="range"] { width: 100%; accent-color: var(--red); height: 30px; }
+.control-note { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+/* ---------------------------------------------------------------- tables */
+.table-wrap { overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.94rem; }
+.data-table th, .data-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+.data-table th { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.data-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.data-table tbody tr { cursor: pointer; }
+.data-table tbody tr:hover { background: #f7f2e8; }
+.data-table tbody tr.selected { background: #fdeeea; }
+.data-table tbody tr:focus-visible { outline: 2px solid var(--indigo); outline-offset: -2px; }
+.empty-row { color: var(--muted); }
+.detail-card h2 { color: var(--red); }
+.detail-list { margin: 0; }
+.detail-list > div { display: flex; justify-content: space-between; gap: 14px; padding: 7px 0; border-bottom: 1px dashed var(--line); }
+.detail-list dt { color: var(--muted); font-size: 0.9rem; }
+.detail-list dd { margin: 0; font-weight: 600; text-align: right; }
+
+/* ---------------------------------------------------------------- trends */
+.trend-readout { margin-bottom: 6px; }
+.trend-value { font-size: 1.6rem; font-weight: 700; margin: 0; }
+.trend-blurb { color: var(--muted); margin: 2px 0 8px; }
+
+/* --------------------------------------------------------------- sources */
+.source-list { margin: 0; padding-left: 20px; }
+.source-list li { margin: 9px 0; }
+
+/* ---------------------------------------------------------------- footer */
+.site-footer {
+  max-width: 1080px;
+  margin: 8px auto 0;
+  padding: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.footer-note { font-size: 0.82rem; }
+
+/* ---------------------------------------------------------------- phones */
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .fact-grid { grid-template-columns: 1fr 1fr; }
+  .hero h1 { font-size: 1.8rem; }
+}
+@media (max-width: 520px) {
+  .kpi-grid, .fact-grid { grid-template-columns: 1fr; }
+  .site-header { padding: 10px 12px; }
+  .page { padding: 16px 12px 6px; }
+  .control input[type="search"], .control select { min-width: 0; width: 100%; }
+  .controls { flex-direction: column; align-items: stretch; }
+  .detail-list > div { flex-direction: column; gap: 0; }
+  .detail-list dd { text-align: left; }
+}
